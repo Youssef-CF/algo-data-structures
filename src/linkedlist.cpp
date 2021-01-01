@@ -3,12 +3,8 @@
 //
 #include <cstdlib>
 #include <string>
+#include "linkedlist.hpp"
 using namespace std;
-
-typedef struct Node {
-    int data;
-    struct Node* next;
-} Node;
 
 bool isEmpty(Node* head) {
     return head == nullptr;
@@ -25,46 +21,24 @@ string toString(Node* head) {
 }
 
 Node* insert(Node* head, int n, char place) {
-    Node* ptr = head;
     Node* new_node = new Node();
     new_node->next = nullptr;
     new_node->data = n;
     if (head == nullptr) {
-        new_node = head;
-        return head;
-        return head;
-
+        return new_node;
     }
     if (place == 'd') {
         new_node->next = head;
         head = new_node;
         return head;
-    } else
-        while (ptr != nullptr) {
-
-            if (place == 'm') {
-                head = head->next;
-                new_node->next = head->next;
-            }
-            return head;
+    } else {
+        Node* ptr = head;
+        while (ptr->next != nullptr) {
+            ptr = ptr->next;
         }
-
-}
-
-Node* insertQueue(Node* head, int n) {
-    Node* new_node = new Node();
-    Node* queu = head;
-    new_node->next = nullptr;
-    new_node->data = n;
-    if (head == nullptr) {
-        new_node = head;
+        ptr->next = new_node;
         return head;
     }
-
-    while (queu->next != nullptr)
-        queu = queu->next;
-    queu->next = new_node;
-    return head;
 }
 
 Node* search(Node* head, int x) {

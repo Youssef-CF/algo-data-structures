@@ -42,12 +42,9 @@ int main() {
                 cout << "donner la valeur: ";
                 cin >> n;
                 cout
-                        << "si vous voulez insérer au début tapper 'd'\n si vous voulez insérer au milieu tappez'm'\n si vous voulez insérer a la fin tappez 'f': ";
+                        << "si vous voulez insérer au début tapper 'd'\n si vous voulez insérer a la fin tappez 'f': ";
                 cin >> place;
-                if ((place == 'd') || (place == 'm'))
-                    insert(head, n, place);
-                if (place == 'f')
-                    insertQueue(head, n);
+                head = insert(head, n, place);
 
                 break;
             }
