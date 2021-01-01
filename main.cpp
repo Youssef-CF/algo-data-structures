@@ -64,17 +64,15 @@ Node* insertQueue(Node* head, int n) {
     return head;
 }
 
-void search(Node* head, int x) {
+Node* search(Node* head, int x) {
     Node* node = head;
-    node = head;
     while (node != NULL) {
         if (node->data == x) {
-            cout << x << "\test trouvé\n";
-            return;
+            return node;
         }
         node = node->next;
     }
-    cout << x << "\tpas trouvé\n";
+    return NULL;
 }
 
 Node* remove(Node* head, int n) {
@@ -193,7 +191,12 @@ int main() {
             case 5: {
                 cout << "choisissez la valeur à rechercher: ";
                 cin >> n;
-                search(head, n);
+                Node* result = search(head, n);
+                if (result != NULL) {
+                    cout << "la valeur " << result->data << " a bien été trouvée";
+                } else {
+                    cout << "la valeur " << n << " n'a pas été trouvée";
+                }
                 break;
             }
             case 6: {
