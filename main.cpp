@@ -3,27 +3,27 @@
 using namespace std;
 typedef struct Node {
     int data;
-    struct Node *next;
+    struct Node* next;
 } Node;
 
-void isEmpty(Node *head) {
+void isEmpty(Node* head) {
     if (head == NULL)
         cout << "liste est vide" << endl;
     else
         cout << "liste non vide" << endl;
 }
 
-void printList(Node *head) {
-    Node *p = head;
+void printList(Node* head) {
+    Node* p = head;
     while (p != NULL) {
         cout << "\t=> " << p->data;
         p = p->next;
     }
 }
 
-Node *insert(Node *head, int n, char place) {
-    Node *ptr = head;
-    Node *new_node = new Node();
+Node* insert(Node* head, int n, char place) {
+    Node* ptr = head;
+    Node* new_node = new Node();
     new_node->next = NULL;
     new_node->data = n;
     if (head == NULL) {
@@ -48,9 +48,9 @@ Node *insert(Node *head, int n, char place) {
 
 }
 
-Node *insertQueue(Node *head, int n) {
-    Node *new_node = new Node();
-    Node *queu = head;
+Node* insertQueue(Node* head, int n) {
+    Node* new_node = new Node();
+    Node* queu = head;
     new_node->next = NULL;
     new_node->data = n;
     if (head == NULL) {
@@ -64,8 +64,8 @@ Node *insertQueue(Node *head, int n) {
     return head;
 }
 
-void search(Node *head, int x) {
-    Node *node = head;
+void search(Node* head, int x) {
+    Node* node = head;
     node = head;
     while (node != NULL) {
         if (node->data == x) {
@@ -77,12 +77,12 @@ void search(Node *head, int x) {
     cout << x << "\tpas trouvé\n";
 }
 
-Node *remove(Node *head, int n) {
+Node* remove(Node* head, int n) {
     if (head == NULL) {
         cout << "liste est deja vide" << endl;
     }
 
-    Node *ptr = head, *p = ptr;
+    Node* ptr = head, *p = ptr;
     while (ptr != NULL) {
         if (ptr->data == n)
             break;
@@ -112,8 +112,8 @@ Node *remove(Node *head, int n) {
 
 }
 
-int occurrence(Node *head, int n) {
-    Node *ptr = head;
+int occurrence(Node* head, int n) {
+    Node* ptr = head;
     int c = 0;
     while (ptr != NULL) {
         if (ptr->data == n) { c++; }
@@ -121,11 +121,11 @@ int occurrence(Node *head, int n) {
     return c;
 }
 
-void deleteList(Node *head) {
-    Node *p = head;
+void deleteList(Node* head) {
+    Node* p = head;
     if (p != NULL) {
 
-        Node *tmp = p->next;
+        Node* tmp = p->next;
         delete p;
         p = tmp;
     }
@@ -135,8 +135,8 @@ void deleteList(Node *head) {
 
 int main() {
     int n, ans;
-    Node *head = NULL;
-    Node *node = new Node();
+    Node* head = NULL;
+    Node* node = new Node();
     node->next = NULL;
 
 
