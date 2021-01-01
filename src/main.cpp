@@ -1,141 +1,13 @@
 #include <iostream>
+#include "linkedlist.hpp"
 
 using namespace std;
-typedef struct Node {
-    int data;
-    struct Node* next;
-} Node;
-
-void isEmpty(Node* head) {
-    if (head == NULL)
-        cout << "liste est vide" << endl;
-    else
-        cout << "liste non vide" << endl;
-}
-
-void printList(Node* head) {
-    Node* p = head;
-    while (p != NULL) {
-        cout << "\t=> " << p->data;
-        p = p->next;
-    }
-}
-
-Node* insert(Node* head, int n, char place) {
-    Node* ptr = head;
-    Node* new_node = new Node();
-    new_node->next = NULL;
-    new_node->data = n;
-    if (head == NULL) {
-        new_node = head;
-        return head;
-        return head;
-
-    }
-    if (place == 'd') {
-        new_node->next = head;
-        head = new_node;
-        return head;
-    } else
-        while (ptr != NULL) {
-
-            if (place == 'm') {
-                head = head->next;
-                new_node->next = head->next;
-            }
-            return head;
-        }
-
-}
-
-Node* insertQueue(Node* head, int n) {
-    Node* new_node = new Node();
-    Node* queu = head;
-    new_node->next = NULL;
-    new_node->data = n;
-    if (head == NULL) {
-        new_node = head;
-        return head;
-    }
-
-    while (queu->next != NULL)
-        queu = queu->next;
-    queu->next = new_node;
-    return head;
-}
-
-Node* search(Node* head, int x) {
-    Node* node = head;
-    while (node != NULL) {
-        if (node->data == x) {
-            return node;
-        }
-        node = node->next;
-    }
-    return NULL;
-}
-
-Node* remove(Node* head, int n) {
-    if (head == NULL) {
-        cout << "liste est deja vide" << endl;
-    }
-
-    Node* ptr = head, *p = ptr;
-    while (ptr != NULL) {
-        if (ptr->data == n)
-            break;
-        else {
-            p = ptr;
-            ptr = ptr->next;
-        }
-    }
-    if (ptr == NULL) {
-        cout << "valeure non trouve" << endl;
-    }
-    if (ptr == p) {
-        head = head->next;
-        delete ptr;
-        delete p;
-        return head;
-    }
-    if (ptr->next == NULL) {
-        p->next = NULL;
-        delete ptr;
-        return head;
-    } else {
-        p->next = ptr->next;
-        delete ptr;
-        return head;
-    }
-
-}
-
-int occurrence(Node* head, int n) {
-    Node* ptr = head;
-    int c = 0;
-    while (ptr != NULL) {
-        if (ptr->data == n) { c++; }
-    }
-    return c;
-}
-
-void deleteList(Node* head) {
-    Node* p = head;
-    if (p != NULL) {
-
-        Node* tmp = p->next;
-        delete p;
-        p = tmp;
-    }
-    delete head;
-    head = NULL;
-}
 
 int main() {
     int n, ans;
-    Node* head = NULL;
+    Node* head = nullptr;
     Node* node = new Node();
-    node->next = NULL;
+    node->next = nullptr;
 
 
     do {
@@ -158,7 +30,11 @@ int main() {
                 break;
             }
             case 1: {
-                isEmpty(head);
+                if (isEmpty(head)) {
+                    cout << "La list est vide" << endl;
+                } else {
+                    cout << "La list est non vide" << endl;
+                }
                 break;
             }
             case 2: {
@@ -177,7 +53,8 @@ int main() {
             }
             case 3: {
                 cout << "liste: ";
-                printList(head);
+                string s = toString(head);
+                cout << s;
                 break;
             }
             case 4: {
@@ -192,7 +69,7 @@ int main() {
                 cout << "choisissez la valeur à rechercher: ";
                 cin >> n;
                 Node* result = search(head, n);
-                if (result != NULL) {
+                if (result != nullptr) {
                     cout << "la valeur " << result->data << " a bien été trouvée";
                 } else {
                     cout << "la valeur " << n << " n'a pas été trouvée";
