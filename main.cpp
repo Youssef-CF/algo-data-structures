@@ -6,18 +6,6 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-void liste_vide(Node *head);
-
-Node *inseret(Node *head, int new_data, char place);
-
-void printList(Node *head);
-
-void chercher(Node *node, int x);
-
-Node *suprimer(Node *head, int n);
-
-Node *inseret_queue(Node *head, int n);
-
 void liste_vide(Node *head) {
     if (head == NULL)
         cout << "liste est vide" << endl;
