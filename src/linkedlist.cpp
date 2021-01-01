@@ -18,7 +18,7 @@ string toString(Node* head) {
     string s;
     Node* p = head;
     while (p != nullptr) {
-        s +=  "\t=> " + to_string(p->data);
+        s +=  " => " + to_string(p->data);
         p = p->next;
     }
     return s;

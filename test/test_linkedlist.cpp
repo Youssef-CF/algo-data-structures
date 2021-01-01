@@ -42,5 +42,28 @@ TEST_CASE("isEmpty list with two elements", "[isEmpty]") {
     REQUIRE_FALSE( isEmpty(n1) );
 }
 
+TEST_CASE("toString empty list") {
+    REQUIRE(toString(nullptr).empty());
+}
+
+TEST_CASE("toString list with one element") {
+    Node* n = new Node();
+    REQUIRE(toString(n) == " => 0");
+}
+
+TEST_CASE("toString list with two elements") {
+    Node* n1 = new Node();n1->data = 1;
+    Node* n2 = new Node();n2->data = 2;
+    n1->next = n2;
+    REQUIRE(toString(n1) == " => 1 => 2");
+}
+
+TEST_CASE("toString list with 3 elements") {
+    Node* n1 = new Node();n1->data = 678;
+    Node* n2 = new Node();n2->data = 23;
+    Node* n3 = new Node();n3->data = 0;
+    n1->next = n2; n2->next = n3;
+    REQUIRE(toString(n1) == " => 678 => 23 => 0");
+}
 
 
