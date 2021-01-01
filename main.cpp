@@ -141,14 +141,14 @@ int main() {
 
 
     do {
-        cout << "0 crier liste" << endl;
+        cout << "0 créer une liste" << endl;
         cout << "1 tester si la liste est vide ou non" << endl;
-        cout << "2 inserer un element " << endl;
+        cout << "2 insérer un element " << endl;
         cout << "3 afficher la liste" << endl;
-        cout << "4 nombre d'acurance" << endl;
-        cout << "5 search un element" << endl;
-        cout << "6 remove un element" << endl;
-        cout << "7 exite" << endl;
+        cout << "4 nombre d'occurrence" << endl;
+        cout << "5 rechercher une valeur" << endl;
+        cout << "6 supprimer un element" << endl;
+        cout << "7 quitter" << endl;
         cout << "donner votre choix: ";
         cin >> ans;
         switch (ans) {
@@ -165,10 +165,10 @@ int main() {
             }
             case 2: {
                 char place;
-                cout << "donner la valeure: ";
+                cout << "donner la valeur: ";
                 cin >> n;
                 cout
-                        << "si vous voulez insert au debut tapper 'd'\n si vous voulez insert au mileiu tappez'm'\n si vous voulez inserer a la fin tappez 'f': ";
+                        << "si vous voulez insérer au début tapper 'd'\n si vous voulez insérer au milieu tappez'm'\n si vous voulez insérer a la fin tappez 'f': ";
                 cin >> place;
                 if ((place == 'd') || (place == 'm'))
                     insert(head, n, place);
@@ -184,20 +184,20 @@ int main() {
             }
             case 4: {
                 int c;
-                cout << "donner le nombre: ";
+                cout << "entrez une valeur: ";
                 cin >> n;
                 c = occurrence(head, n);
-                cout << "nombre d'acurence de" << n << "est" << c;
+                cout << "l'occurrence de " << n << " est de " << c;
                 break;
             }
             case 5: {
-                cout << "donner la valeure pour search: ";
+                cout << "choisissez la valeur à rechercher: ";
                 cin >> n;
                 search(head, n);
                 break;
             }
             case 6: {
-                cout << "donner la valeure pour remove: ";
+                cout << "choisissez la valeur à supprimer: ";
                 cin >> n;
                 remove(head, n);
                 break;
