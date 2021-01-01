@@ -6,7 +6,7 @@ typedef struct Node {
     struct Node *next;
 } Node;
 
-void liste_vide(Node *head) {
+void isEmpty(Node *head) {
     if (head == NULL)
         cout << "liste est vide" << endl;
     else
@@ -21,7 +21,7 @@ void printList(Node *head) {
     }
 }
 
-Node *inseret(Node *head, int n, char place) {
+Node *insert(Node *head, int n, char place) {
     Node *ptr = head;
     Node *new_node = new Node();
     new_node->next = NULL;
@@ -48,8 +48,7 @@ Node *inseret(Node *head, int n, char place) {
 
 }
 
-
-Node *inseret_queue(Node *head, int n) {
+Node *insertQueue(Node *head, int n) {
     Node *new_node = new Node();
     Node *queu = head;
     new_node->next = NULL;
@@ -65,7 +64,7 @@ Node *inseret_queue(Node *head, int n) {
     return head;
 }
 
-void chercher(Node *head, int x) {
+void search(Node *head, int x) {
     Node *node = head;
     node = head;
     while (node != NULL) {
@@ -78,7 +77,7 @@ void chercher(Node *head, int x) {
     cout << x << "\tpas trouvé\n";
 }
 
-Node *suprimer(Node *head, int n) {
+Node *remove(Node *head, int n) {
     if (head == NULL) {
         cout << "liste est deja vide" << endl;
     }
@@ -113,7 +112,7 @@ Node *suprimer(Node *head, int n) {
 
 }
 
-int nombre_accurence(Node *head, int n) {
+int occurrence(Node *head, int n) {
     Node *ptr = head;
     int c = 0;
     while (ptr != NULL) {
@@ -122,7 +121,7 @@ int nombre_accurence(Node *head, int n) {
     return c;
 }
 
-void delete_list(Node *head) {
+void deleteList(Node *head) {
     Node *p = head;
     if (p != NULL) {
 
@@ -147,8 +146,8 @@ int main() {
         cout << "2 inserer un element " << endl;
         cout << "3 afficher la liste" << endl;
         cout << "4 nombre d'acurance" << endl;
-        cout << "5 chercher un element" << endl;
-        cout << "6 suprimer un element" << endl;
+        cout << "5 search un element" << endl;
+        cout << "6 remove un element" << endl;
         cout << "7 exite" << endl;
         cout << "donner votre choix: ";
         cin >> ans;
@@ -161,7 +160,7 @@ int main() {
                 break;
             }
             case 1: {
-                liste_vide(head);
+                isEmpty(head);
                 break;
             }
             case 2: {
@@ -169,12 +168,12 @@ int main() {
                 cout << "donner la valeure: ";
                 cin >> n;
                 cout
-                        << "si vous voulez insert au debut tapper 'd'\n si vous voulez inseret au mileiu tappez'm'\n si vous voulez inserer a la fin tappez 'f': ";
+                        << "si vous voulez insert au debut tapper 'd'\n si vous voulez insert au mileiu tappez'm'\n si vous voulez inserer a la fin tappez 'f': ";
                 cin >> place;
                 if ((place == 'd') || (place == 'm'))
-                    inseret(head, n, place);
+                    insert(head, n, place);
                 if (place == 'f')
-                    inseret_queue(head, n);
+                    insertQueue(head, n);
 
                 break;
             }
@@ -187,24 +186,24 @@ int main() {
                 int c;
                 cout << "donner le nombre: ";
                 cin >> n;
-                c = nombre_accurence(head, n);
+                c = occurrence(head, n);
                 cout << "nombre d'acurence de" << n << "est" << c;
                 break;
             }
             case 5: {
-                cout << "donner la valeure pour chercher: ";
+                cout << "donner la valeure pour search: ";
                 cin >> n;
-                chercher(head, n);
+                search(head, n);
                 break;
             }
             case 6: {
-                cout << "donner la valeure pour suprimer: ";
+                cout << "donner la valeure pour remove: ";
                 cin >> n;
-                suprimer(head, n);
+                remove(head, n);
                 break;
             }
             case 7: {
-                delete_list(head);
+                deleteList(head);
                 break;
             }
 
