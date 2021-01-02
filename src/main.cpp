@@ -76,7 +76,7 @@ int main() {
             case 6: {
                 cout << "choisissez la valeur à supprimer: ";
                 cin >> n;
-                remove(head, n);
+                head = remove(head, n);
                 break;
             }
             case 7: {

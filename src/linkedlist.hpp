@@ -16,6 +16,5 @@ Node* search(Node* head, int x);
 Node* remove(Node* head, int n);
 int occurrence(Node* head, int n);
 void deleteList(Node* head);
-Node* insertQueue(Node* head, int n);
 
 #endif //ALGO_DATA_STRUCTURES_LINKEDLIST_HPP

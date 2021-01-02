@@ -67,12 +67,11 @@ Node* remove(Node* head, int n) {
         }
     }
     if (ptr == nullptr) {
-        return nullptr;
+        return head;
     }
     if (ptr == p) {
         head = head->next;
         delete ptr;
-        delete p;
         return head;
     }
     if (ptr->next == nullptr) {
@@ -84,7 +83,6 @@ Node* remove(Node* head, int n) {
         delete ptr;
         return head;
     }
-
 }
 
 int occurrence(Node* head, int n) {
