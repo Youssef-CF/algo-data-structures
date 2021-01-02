@@ -230,3 +230,71 @@ TEST_CASE("remove") {
         }
     }
 }
+
+TEST_CASE("occurrence") {
+    SECTION("occurrence for empty list") {
+        REQUIRE(occurrence(nullptr, 6) == 0);
+    }
+
+    SECTION("occurrence for single element list") {
+        Node* n = new Node();
+        n->data = 56;
+        REQUIRE(occurrence(n, 32) == 0);
+        REQUIRE(occurrence(n, 56) == 1);
+    }
+
+    SECTION("occurrence for list with 2 distinct elements") {
+        Node* n1 = new Node();
+        n1->data = 1;
+        Node* n2 = new Node();
+        n2->data = 2;
+        n1->next = n2;
+        REQUIRE(occurrence(n1, 1) == 1);
+        REQUIRE(occurrence(n1, 2) == 1);
+        REQUIRE(occurrence(n1, 3) == 0);
+    }
+
+    SECTION("occurrence for list with 2 duplicate elements") {
+        Node* n1 = new Node();
+        n1->data = 1;
+        Node* n2 = new Node();
+        n2->data = 1;
+        n1->next = n2;
+        REQUIRE(occurrence(n1, 1) == 2);
+        REQUIRE(occurrence(n1, 2) == 0);
+    }
+
+    SECTION("occurrence for list with 3 elements with 2 duplicates") {
+        Node* n1 = new Node();
+        n1->data = 1;
+        Node* n2 = new Node();
+        n2->data = 2;
+        n1->next = n2;
+        Node* n3 = new Node();
+        n3->data = 2;
+        n1->next = n2;
+        n2->next = n3;
+        REQUIRE(occurrence(n1, 1) == 1);
+        REQUIRE(occurrence(n1, 2) == 2);
+        REQUIRE(occurrence(n1, 3) == 0);
+    }
+
+    SECTION("occurrence for list with 10 elements") {
+        int values [10] = { 1, 1, 5, 4, 9, 8, 8, 8, 4, 8 };
+        Node* n;
+        for (int i = 9; i > -1; --i) {
+            Node* newNode = new Node();
+            newNode->data = values[i];
+            newNode->next = n;
+            n = newNode;
+        }
+
+        REQUIRE(occurrence(n, 1) == 2);
+        REQUIRE(occurrence(n, 5) == 1);
+        REQUIRE(occurrence(n, 4) == 2);
+        REQUIRE(occurrence(n, 9) == 1);
+        REQUIRE(occurrence(n, 8) == 4);
+        REQUIRE(occurrence(n, 3) == 0);
+    }
+
+}

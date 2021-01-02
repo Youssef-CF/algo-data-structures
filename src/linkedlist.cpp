@@ -90,6 +90,7 @@ int occurrence(Node* head, int n) {
     int c = 0;
     while (ptr != nullptr) {
         if (ptr->data == n) { c++; }
+        ptr = ptr->next;
     }
     return c;
 }
